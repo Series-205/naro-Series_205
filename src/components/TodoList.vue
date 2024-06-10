@@ -28,20 +28,16 @@ const finishTask = (task: Task) => {
   <div>TodoList</div>
   <div>完了済</div>
   <ul>
-    <template v-for="task in tasks" :key="task.name">
-      <li v-if="task.isFinished">
-        {{ task.name }}
-      </li>
-    </template>
+    <li v-for="task in tasks.filter((task) => task.isFinished)" :key="task.name">
+      {{ task.name }}
+    </li>
   </ul>
   <div>未完</div>
   <ul>
-    <template v-for="task in tasks" :key="task.name">
-      <li v-if="!task.isFinished">
-        {{ task.name }}
-        <button @click="finishTask(task)">完了</button>
-      </li>
-    </template>
+    <li v-for="task in tasks.filter((task) => !task.isFinished)" :key="task.name">
+      {{ task.name }}
+      <button @click="finishTask(task)">完了</button>
+    </li>
   </ul>
   <div>
     タスク名
