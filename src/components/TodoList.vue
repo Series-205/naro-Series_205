@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ItemList from './ItemList.vue'
 
 interface Task {
   name: string
