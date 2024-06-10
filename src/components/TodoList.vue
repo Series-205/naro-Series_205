@@ -11,6 +11,13 @@ const tasks = ref<Task[]>([
   { name: 'レポート', isFinished: false },
   { name: '環境構築', isFinished: true }
 ])
+const newTaskName = ref('')
+
+const addTask = () => {
+  if (newTaskName.value != '') {
+    tasks.value.push({ name: newTaskName.value, isFinished: false })
+  }
+}
 </script>
 
 <template>
@@ -31,6 +38,11 @@ const tasks = ref<Task[]>([
       </li>
     </template>
   </ul>
+  <div>
+    タスク名
+    <input v-model="newTaskName" type="text" />
+    <button @click="addTask">追加</button>
+  </div>
 </template>
 
 <style></style>
