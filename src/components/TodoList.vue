@@ -18,6 +18,10 @@ const addTask = () => {
     tasks.value.push({ name: newTaskName.value, isFinished: false })
   }
 }
+
+const finishTask = (task: Task) => {
+  task.isFinished = true
+}
 </script>
 
 <template>
@@ -35,6 +39,7 @@ const addTask = () => {
     <template v-for="task in tasks" :key="task.name">
       <li v-if="!task.isFinished">
         {{ task.name }}
+        <button @click="finishTask(task)">完了</button>
       </li>
     </template>
   </ul>
