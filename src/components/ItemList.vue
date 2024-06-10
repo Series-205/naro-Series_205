@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { isTemplateExpression } from 'typescript'
 import { ref } from 'vue'
 
 interface Item {
